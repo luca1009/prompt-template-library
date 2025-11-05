@@ -1,0 +1,10 @@
+{
+    "id": "summary_v1",
+    "name": "Textzusammenfassung - Variante A",
+    "description": "Erzeugt eine neutrale, prägnante Zusammenfassung eines Textes.",
+    "version": "1.0.0",
+    "placeholders": {
+        "input": "string"
+    },
+    "prompt": "Fasse den folgenden Text präzise zusammen: \n\n$input"
+}

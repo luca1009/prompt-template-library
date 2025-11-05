@@ -1,0 +1,12 @@
+{
+    "id": "template_id",
+    "name": "Template Name",
+    "description": "Template Description",
+    "version": "1.0.0",
+    "placeholders": {
+        "role": "string",
+        "input": "string"
+    },
+    "role": "kommt in system prompt rein",
+    "prompt": "Act as: $role \n Prompt: $input"
+}

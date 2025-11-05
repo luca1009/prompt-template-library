@@ -1,0 +1,11 @@
+{
+    "id": "persona",
+    "name": "Textzusammenfassung - Variante A",
+    "description": "Erzeugt eine neutrale, prägnante Zusammenfassung eines Textes.",
+    "version": "1.0.0",
+    "placeholders": {
+        "persona": "string",
+        "task": "string"
+    },
+    "prompt": "Du bist jetzt $persona. $task"
+}

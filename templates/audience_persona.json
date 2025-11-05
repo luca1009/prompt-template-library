@@ -1,0 +1,11 @@
+{
+    "id": "audience_persona",
+    "name": "Audience Persona",
+    "description": "Template Description",
+    "version": "1.0.0",
+    "placeholders": {
+        "topic": "string",
+        "persona": "string"
+    },
+    "prompt": "Explain $topic to me. Assume that I am $persona."
+}

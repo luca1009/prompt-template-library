@@ -1,0 +1,12 @@
+{
+    "id": "template_pattern",
+    "name": "Template Pattern",
+    "description": "Template Description",
+    "version": "1.0.0",
+    "placeholders": {
+        "task": "string",
+        "placeholders": "string",
+        "template": "string"
+    },
+    "prompt": "Generate $task. My placeholders are: $placeholders \n Preserve the formatting and overall template that is provided. \n Template: $template"
+}

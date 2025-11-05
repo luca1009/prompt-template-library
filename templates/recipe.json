@@ -1,0 +1,11 @@
+{
+    "id": "recipe",
+    "name": "Recipe Pattern",
+    "description": "Template Description",
+    "version": "1.0.0",
+    "placeholders": {
+        "task": "string",
+        "steps": "string"
+    },
+    "prompt": "Ich möchte $task. Ich weiß dass ich folgende Schritte erledigen muss: $steps. Gebe mir die komplette Reihenfolge aller Schritte die ich zur Erreichung des Ziels brauche. Füge fehlende Aktionen hinzu. Identifiziere unnötige Aktionen. Denke Schritt für Schritt."
+}
