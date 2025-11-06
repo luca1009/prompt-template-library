@@ -3,6 +3,7 @@
     "name": "Template Name",
     "description": "Template Description",
     "version": "1.0.0",
+    "language": "de", 
     "placeholders": {
         "role": "string",
         "input": "string"
