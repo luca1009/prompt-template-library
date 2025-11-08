@@ -7,7 +7,9 @@ import json
 import os
 import string
 
-import tiktoken
+import tiktoken # Für Token-Schätzung
+
+import requests # Für LM Studio API-Aufrufe
 
 app = FastAPI(
     title="Prompt Pattern Templating API",
@@ -20,7 +22,8 @@ MODEL_NAME = "lmstudio-model"
 
 class ExecuteRequest(BaseModel):
     template_id: str
-    params: dict
+    params: Dict[str, str]
+    model_name: str = "gpt-40-mini"
 
 class Template(BaseModel):
     id: str
@@ -45,6 +48,13 @@ class RenderResponse(BaseModel):
     template_id: str
     rendered_prompt: str
     estimated_tokens: int
+
+class ExecuteResponse(BaseModel):
+    template_id: str
+    rendered_prompt: str
+    estimated_tokens: int
+    model_name: str
+    response_text: str
 
 TEMPLATE_DIR = "templates"
 
@@ -76,6 +86,26 @@ def estimate_tokens(text: str, model_name: str = "gpt-4o-mini") -> int:
     except KeyError:
         encoding = tiktoken.get_encoding("cl100k_base")
     return len(encoding.encode(text))
+
+# LM Studio Integration
+def execute_prompt(rendered_prompt: str, model_name: str):
+    payload = {
+        "model": model_name,
+        "messages": [
+            {"role": "user", "content": rendered_prompt}
+        ],
+        "temperature": 0.7
+    }
+    try:
+        response = requests.post(LM_STUDIO_URL, json=payload, timeout=30)
+        response.raise_for_status()
+        j = response.json()
+    except requests.RequestException as e:
+        raise HTTPException(status_code=500, detail=f"Fehler bei LM Studio Anfrage: {e}")
+    
+    response_text = ""
+
+    return response_text
 
 # --- API Endpoints ---
 
@@ -110,5 +140,29 @@ def render_prompt(req: RenderRequest):
         template_id=template.id,
         rendered_prompt=rendered,
         estimated_tokens=est_tokens
+    )
+
+@app.post("/execute", response_model=ExecuteResponse)
+def render_and_execute(req: ExecuteRequest):
+    template = load_template(req.template_id)
+
+    prompt_template = template.prompt 
+    safe_template = string.Template(prompt_template)
+
+    try:
+        rendered = safe_template.substitute(req.params)
+    except KeyError as e:
+        raise HTTPException(status_code=400, detail=f"Fehlender Platzhalter: {e}")
+    
+    est_tokens = estimate_tokens(rendered, req.model_name)
+
+    response_text = execute_prompt(rendered_prompt=rendered, model_name=req.model_name)
+
+    return ExecuteResponse(
+        template_id=template.id,
+        rendered_prompt=rendered,
+        estimated_tokens=est_tokens,
+        model_name=req.model_name,
+        response_text=response_text
     )
 
