@@ -1,0 +1,13 @@
+{
+    "id": "question_refinement",
+    "name": "Question Refinement",
+    "description": "Template for refining questions",
+    "version": "1.0.0",
+    "language": "de", 
+    "placeholders": {
+        "role": "string",
+        "input": "string"
+    },
+    "role": "kommt in system prompt rein",
+    "prompt": "Act as: $role \n Prompt: $input"
+}

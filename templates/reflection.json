@@ -1,0 +1,13 @@
+{
+    "id": "reflection",
+    "name": "Reflection",
+    "description": "Template for reflecting on user experiences and feedback",
+    "version": "1.0.0",
+    "language": "de", 
+    "placeholders": {
+        "role": "string",
+        "input": "string"
+    },
+    "role": "kommt in system prompt rein",
+    "prompt": "Act as: $role \n Prompt: $input"
+}

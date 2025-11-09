@@ -1,0 +1,13 @@
+{
+    "id": "infinite_generation",
+    "name": "Infinite Generation",
+    "description": "Template for infinite generation tasks",
+    "version": "1.0.0",
+    "language": "de", 
+    "placeholders": {
+        "role": "string",
+        "input": "string"
+    },
+    "role": "kommt in system prompt rein",
+    "prompt": "Act as: $role \n Prompt: $input"
+}

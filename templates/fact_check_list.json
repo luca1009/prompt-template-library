@@ -1,0 +1,13 @@
+{
+    "id": "fact_check_list",
+    "name": "Fact Check List",
+    "description": "Template for creating a fact check list",
+    "version": "1.0.0",
+    "language": "de", 
+    "placeholders": {
+        "role": "string",
+        "input": "string"
+    },
+    "role": "kommt in system prompt rein",
+    "prompt": "Act as: $role \n Prompt: $input"
+}
