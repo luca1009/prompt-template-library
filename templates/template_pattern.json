@@ -1,12 +1,16 @@
 {
     "id": "template_pattern",
     "name": "Template Pattern",
-    "description": "Template Description",
-    "version": "1.0.0",
+    "description": "Forces output to match a provided template format exactly for reliable post-processing.",
+    "version": "1.1.0",
+    "language": "en",
     "placeholders": {
         "task": "string",
         "placeholders": "string",
         "template": "string"
     },
-    "prompt": "Generate $task. My placeholders are: $placeholders \n Preserve the formatting and overall template that is provided. \n Template: $template"
+    "prompt": "Task: $task\n\nPlaceholders to fill: $placeholders\n\nTemplate:\n$template",
+    "system_prompt": "You are a formatting engine. You must preserve the provided template structure exactly (line breaks, punctuation, ordering). Fill placeholders as requested. Output ONLY the final filled template.",
+    "user_prompt": "Task: $task\n\nPlaceholders to fill (what each means):\n$placeholders\n\nTemplate (preserve formatting exactly):\n$template",
+    "temperature": 0.2
 }

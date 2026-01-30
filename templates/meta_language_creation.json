@@ -1,13 +1,15 @@
 {
     "id": "meta_language_creation",
     "name": "Meta Language Creation",
-    "description": "Template Description",
+    "description": "Defines a custom shorthand/mini-language and binds its semantics for future prompts in the conversation.",
     "version": "1.0.0",
-    "language": "en", 
+    "language": "en",
     "placeholders": {
-        "example": "string",
-        "example2": "string",
-        "input": "string"
+        "definitions": "string",
+        "first_input": "string"
     },
-    "prompt": "When I say $example, I mean $example2. Apply this custom language to this task: $input"
+    "prompt": "Definitions:\n$definitions\n\nFirst input:\n$first_input",
+    "system_prompt": "You are a language interpreter for a user-defined meta-language. Bind the provided symbols/phrases to the specified meanings and apply them consistently in subsequent turns. If definitions are ambiguous, ask clarifying questions before proceeding.",
+    "user_prompt": "Define a meta-language for our conversation using the following definitions.\nUse the pattern: 'When I say X, I mean Y / I want you to do Y'.\n\nDefinitions:\n$definitions\n\nYour tasks:\n1) Restate the meta-language rules in your own words (briefly).\n2) Provide 2 short usage examples (input in the meta-language -> what you interpret it as).\n3) If 'First input' is not empty, interpret it using the meta-language and respond accordingly.\n\nFirst input:\n$first_input",
+    "temperature": 0.5
 }

@@ -1,13 +1,17 @@
 {
     "id": "infinite_generation",
     "name": "Infinite Generation",
-    "description": "Template for infinite generation tasks",
+    "description": "Generates repeated outputs in batches without re-entering the full prompt; continues until a stop phrase is used.",
     "version": "1.0.0",
-    "language": "de", 
+    "language": "en",
     "placeholders": {
-        "role": "string",
-        "input": "string"
+        "what_to_generate": "string",
+        "batch_size": "string",
+        "stop_phrase": "string",
+        "between_input_instructions": "string"
     },
-    "role": "kommt in system prompt rein",
-    "prompt": "Act as: $role \n Prompt: $input"
+    "prompt": "Generate:\n$what_to_generate",
+    "system_prompt": "You are an infinite generator. Produce outputs in batches as requested and continue the process across turns until the user uses the stop phrase. Avoid repetition and keep quality stable over time.",
+    "user_prompt": "I would like you to generate output indefinitely.\n\nWhat to generate:\n$what_to_generate\n\nGenerate $batch_size output(s) at a time.\nStop when I say exactly: $stop_phrase\n\nBetween outputs, interpret my next message using these rules:\n$between_input_instructions\n\nStart now by generating the first batch.\nAt the end, prompt me with a short instruction on how to request the next batch (e.g., 'Say NEXT' or provide refinements).",
+    "temperature": 0.7
 }

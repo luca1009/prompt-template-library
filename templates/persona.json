@@ -1,14 +1,15 @@
 {
     "id": "persona",
     "name": "Persona Pattern",
-    "description": "Answers the user's query by adopting a specific persona or role. Placeholders include 'persona' for the role to assume and 'task' for the specific action or response required.",
-    "version": "1.0.0",
+    "description": "Adopts a specific persona/role to answer a task with consistent tone and expertise. Placeholders include 'persona' for the role to assume and 'task' for the specific action or response required.",
+    "version": "1.1.0",
+    "language": "en",
     "placeholders": {
         "persona": "string",
         "task": "string"
     },
-    "prompt": "Du bist jetzt $persona. $task",
-    "system_prompt": "Act as the following persona: $persona. Stay in character and respond to the user's requests accordingly.",
+    "prompt": "Act as $persona. $task",
+    "system_prompt": "Act as the following persona: $persona. Stay in character and respond to the user's requests accordingly. If the task lacks required information, ask up to 2 concise clarification questions before answering.",
     "user_prompt": "Your task is: $task. \nAnswer: ",
-    "temperature": 0.7
+    "temperature": 0.5
 }

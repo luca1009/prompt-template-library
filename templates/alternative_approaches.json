@@ -1,13 +1,14 @@
 {
     "id": "alternative_approaches",
     "name": "Alternative Approaches",
-    "description": "Template for exploring alternative approaches",
-    "version": "1.0.0",
-    "language": "de", 
+    "description": "Generates multiple distinct solution approaches with trade-offs and recommends one.",
+    "version": "1.2.1",
+    "language": "en",
     "placeholders": {
-        "role": "string",
-        "input": "string"
+        "problem": "string"
     },
-    "role": "kommt in system prompt rein",
-    "prompt": "Act as: $role \n Prompt: $input"
+    "prompt": "Problem:\n$problem",
+    "system_prompt": "You propose multiple distinct approaches and compare trade-offs. Make differences clear and avoid minor variants of the same approach.",
+    "user_prompt": "Problem:\n$problem\n\nTask:\nProvide 3 meaningfully different approaches.\n\nOutput format:\n- Assumptions (if needed, max 3 bullets)\n- Approach 1/2/3 (each):\n  - Idea (1-2 sentences)\n  - Pros (bullets)\n  - Cons (bullets)\n  - Risks (bullets)\n  - Effort (low/med/high)\n- Recommendation:\n  - Chosen approach\n  - Rationale (2-3 sentences)\n  - First steps (3 concrete bullets)",
+    "temperature": 0.5
 }

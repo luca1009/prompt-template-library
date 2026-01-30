@@ -1,13 +1,14 @@
 {
     "id": "flipped_interaction",
     "name": "Flipped Interaction",
-    "description": "Template for flipped interaction",
-    "version": "1.0.0",
-    "language": "de", 
+    "description": "Asks the single most important next question to efficiently solve the user's problem.",
+    "version": "1.2.1",
+    "language": "en",
     "placeholders": {
-        "role": "string",
-        "input": "string"
+        "problem": "string"
     },
-    "role": "kommt in system prompt rein",
-    "prompt": "Act as: $role \n Prompt: $input"
+    "prompt": "User problem:\n$problem",
+    "system_prompt": "You lead the conversation by asking the single most important next question to solve the problem efficiently. Ask exactly one question. Keep it short and high-impact.",
+    "user_prompt": "User problem:\n$problem\n\nTask:\nAsk exactly ONE next question that unlocks the solution.\n\nOutput format:\n- Next question (single line)\n- Why this question? (1 sentence)\n- What you can deliver after the answer (max 3 bullets)",
+    "temperature": 0.4
 }

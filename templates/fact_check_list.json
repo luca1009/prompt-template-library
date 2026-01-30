@@ -1,13 +1,14 @@
 {
     "id": "fact_check_list",
     "name": "Fact Check List",
-    "description": "Template for creating a fact check list",
-    "version": "1.0.0",
-    "language": "de", 
+    "description": "Extracts verifiable factual claims and provides a checklist to verify them.",
+    "version": "1.2.1",
+    "language": "en",
     "placeholders": {
-        "role": "string",
-        "input": "string"
+        "text": "string"
     },
-    "role": "kommt in system prompt rein",
-    "prompt": "Act as: $role \n Prompt: $input"
+    "prompt": "Text:\n$text",
+    "system_prompt": "You are a precise fact-checking assistant. Extract only verifiable factual claims (no opinions, no vague statements). Be concise and structured.",
+    "user_prompt": "Text:\n$text\n\nTask:\n1) Extract atomic, verifiable factual claims.\n2) Provide a verification checklist for each claim.\n\nOutput format:\n- Brief overview (1-2 sentences)\n- Claims (numbered). For each claim:\n  - Claim\n  - Why it is verifiable\n  - How to verify (concrete steps / source types)\n  - What would disprove it\n- Optional: Non-verifiable statements / opinions (if any)",
+    "temperature": 0.2
 }

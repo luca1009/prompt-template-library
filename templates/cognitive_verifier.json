@@ -1,13 +1,14 @@
 {
     "id": "cognitive_verifier",
     "name": "Cognitive Verifier",
-    "description": "Template for verifying cognitive tasks",
-    "version": "1.0.0",
-    "language": "de", 
+    "description": "Decomposes a task into sub-questions, answers them briefly, then verifies the final answer.",
+    "version": "1.2.1",
+    "language": "en",
     "placeholders": {
-        "role": "string",
-        "input": "string"
+        "query": "string"
     },
-    "role": "kommt in system prompt rein",
-    "prompt": "Act as: $role \n Prompt: $input"
+    "prompt": "Query:\n$query",
+    "system_prompt": "You decompose complex tasks into sub-questions, answer them briefly, then verify the final response for contradictions, missing constraints, and unsupported claims.",
+    "user_prompt": "Query:\n$query\n\nOutput format:\n1) Sub-questions (3-5, numbered)\n2) Brief answers to sub-questions\n3) Draft final answer\n4) Verification checklist:\n   - Missing constraints?\n   - Contradictions?\n   - Unsupported claims?\n5) Final answer (revised after verification)",
+    "temperature": 0.3
 }

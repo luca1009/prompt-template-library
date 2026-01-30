@@ -1,13 +1,15 @@
 {
     "id": "game_play",
     "name": "Game Play",
-    "description": "Template for game play scenarios",
+    "description": "Creates an interactive game around a topic using a small set of rules; the model acts as game master.",
     "version": "1.0.0",
-    "language": "de", 
+    "language": "en",
     "placeholders": {
-        "role": "string",
-        "input": "string"
+        "topic": "string",
+        "rules": "string"
     },
-    "role": "kommt in system prompt rein",
-    "prompt": "Act as: $role \n Prompt: $input"
+    "prompt": "Topic:\n$topic\n\nRules:\n$rules",
+    "system_prompt": "You are a game master. Create and run an interactive text-based game around the given topic. Follow the provided rules and keep the game state consistent across turns. The game should be playable via short user inputs and your narrative responses.",
+    "user_prompt": "Create a game around this topic:\n$topic\n\nGame rules (must follow):\n$rules\n\nStart the game now.\nOutput format:\n1) Title + short premise\n2) Rules summary (bullets)\n3) Initial scenario (with clues/choices)\n4) Ask the player: 'What do you do next?'\n\nConstraints:\n- Keep the first turn engaging and concise.\n- Do not reveal hidden information unless the player discovers it through actions.",
+    "temperature": 0.8
 }

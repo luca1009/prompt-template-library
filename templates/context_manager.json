@@ -1,13 +1,17 @@
 {
     "id": "context_manager",
     "name": "Context Manager",
-    "description": "Template for managing context in conversations",
+    "description": "Controls conversational context by scoping what to consider and what to ignore (and optionally resetting).",
     "version": "1.0.0",
-    "language": "de", 
+    "language": "en",
     "placeholders": {
-        "role": "string",
-        "input": "string"
+        "scope": "string",
+        "consider": "string",
+        "ignore": "string",
+        "task": "string"
     },
-    "role": "kommt in system prompt rein",
-    "prompt": "Act as: $role \n Prompt: $input"
+    "prompt": "Scope:\n$scope\n\nConsider:\n$consider\n\nIgnore:\n$ignore\n\nTask:\n$task",
+    "system_prompt": "You are a context manager for an LLM conversation. Apply the provided scope and context directives to produce the best possible answer to the task. Strictly prioritize 'Consider' items and de-prioritize or exclude 'Ignore' items. Do not mention these directives unless the user explicitly asks you to.",
+    "user_prompt": "Scope:\n$scope\n\nConsider (key facts/instructions to focus on):\n$consider\n\nIgnore (topics/constraints to exclude):\n$ignore\n\nTask:\n$task\n\nInstructions:\n- If 'Consider' or 'Ignore' is empty, treat it as 'none'.\n- If the scope implies a reset (e.g., 'start over'), do not rely on earlier conversation context.\n- Produce a direct, helpful answer that stays within the given scope.",
+    "temperature": 0.4
 }

@@ -1,13 +1,16 @@
 {
     "id": "visualization_generator",
     "name": "Visualization Generator",
-    "description": "Template for generating visual representations of data",
+    "description": "Generates a textual visualization input (e.g., Graphviz/Mermaid/PlantUML/DALL·E prompt) that can be fed into a visualization tool.",
     "version": "1.0.0",
-    "language": "de", 
+    "language": "en",
     "placeholders": {
-        "role": "string",
-        "input": "string"
+        "content": "string",
+        "tool": "string",
+        "visualization_type": "string"
     },
-    "role": "kommt in system prompt rein",
-    "prompt": "Act as: $role \n Prompt: $input"
+    "prompt": "Content:\n$content",
+    "system_prompt": "You generate visualization specifications as text that can be provided to an external tool. Choose an appropriate representation for the requested tool/type and keep it syntactically correct. Prefer clarity over decoration.",
+    "user_prompt": "Visualize the following:\n$content\n\nTool (or 'auto'):\n$tool\n\nVisualization type (e.g., flowchart, directed graph, sequence diagram, class diagram, mind map):\n$visualization_type\n\nOutput requirements:\n1) Provide the visualization input in a single code block suited for the chosen tool.\n2) Then provide a short 'How to render' instruction (2-4 bullets).\n\nIf tool = 'auto', choose one of: Mermaid, Graphviz DOT, PlantUML, or a text prompt for an image generator. Pick what best matches the content and visualization type.",
+    "temperature": 0.4
 }

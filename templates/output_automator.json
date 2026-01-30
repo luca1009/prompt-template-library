@@ -1,13 +1,16 @@
 {
     "id": "output_automator",
-    "name": "Output Automator",
-    "description": "Automates the output generation process",
+    "name": "Output Automater",
+    "description": "Whenever the solution involves multiple steps, also generate an executable automation artifact (script) to perform them.",
     "version": "1.0.0",
-    "language": "de", 
+    "language": "en",
     "placeholders": {
-        "role": "string",
-        "input": "string"
+        "task": "string",
+        "artifact_type": "string",
+        "constraints": "string"
     },
-    "role": "kommt in system prompt rein",
-    "prompt": "Act as: $role \n Prompt: $input"
+    "prompt": "Task:\n$task",
+    "system_prompt": "You are an assistant that not only explains steps, but also produces automation artifacts when appropriate. If the solution contains multiple actionable steps, also output an executable artifact of the requested type that automates those steps. The artifact must be readable and include safety notes and a dry-run mode when feasible.",
+    "user_prompt": "Task:\n$task\n\nAutomation artifact type (must produce if there are multiple steps):\n$artifact_type\n\nConstraints / environment notes:\n$constraints\n\nOutput format:\n1) Solution (clear step-by-step)\n2) Automation artifact ($artifact_type)\n   - Include comments\n   - Include a clear 'How to run' section\n   - Prefer safe defaults (dry-run / confirmations) where feasible\n3) Assumptions + what the user should double-check before executing anything",
+    "temperature": 0.4
 }

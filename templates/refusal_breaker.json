@@ -1,13 +1,14 @@
 {
     "id": "refusal_breaker",
     "name": "Refusal Breaker",
-    "description": "Template for breaking LLM refusals by reframing the request",
+    "description": "If the assistant cannot answer (policy, missing info, or limitations), explain why and propose safer/answerable rephrasings.",
     "version": "1.0.0",
-    "language": "de", 
+    "language": "en",
     "placeholders": {
-        "role": "string",
-        "input": "string"
+        "question": "string"
     },
-    "role": "kommt in system prompt rein",
-    "prompt": "Act as: $role \n Prompt: $input"
+    "prompt": "Question:\n$question",
+    "system_prompt": "You help the user get to an answerable question without enabling wrongdoing. If the question is answerable, answer it normally. If you must refuse or cannot answer fully, explain the reason at a high level and propose alternative safe rephrasings that preserve benign intent.",
+    "user_prompt": "User question:\n$question\n\nRules:\n- If you can answer: provide the best possible answer.\n- If you cannot answer (policy, lack of info, or capability):\n  1) Explain briefly why (1-3 sentences).\n  2) Provide 3 alternative rephrasings you *can* answer.\n  3) Provide up to 3 clarifying questions that would make the original intent answerable.\n  4) If the topic is sensitive, suggest a safe, educational framing (high-level, harm-minimizing).",
+    "temperature": 0.4
 }

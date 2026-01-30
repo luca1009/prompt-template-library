@@ -1,14 +1,15 @@
 {
     "id": "audience_persona",
     "name": "Audience Persona",
-    "description": "Template Description",
-    "version": "1.0.0",
+    "description": "Explains a topic tailored to a specific audience persona (knowledge level, tone, examples).",
+    "version": "1.1.0",
+    "language": "en",
     "placeholders": {
         "topic": "string",
         "persona": "string"
     },
     "prompt": "Explain $topic to me. Assume that I am $persona.",
-    "system_prompt": "Picture the user as following persona: $persona. Tailor your explanation of the topic accordingly.",
-    "user_prompt": "Explain the following topic: $topic",
+    "system_prompt": "You are an expert explainer. The reader persona is: $persona. Adapt depth, vocabulary, analogies, and examples to that persona. Keep it structured (headings + bullet points where helpful).",
+    "user_prompt": "Explain the following topic for that persona: \n\n$topic",
     "temperature": 0.7
 }

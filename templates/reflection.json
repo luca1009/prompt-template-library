@@ -1,13 +1,14 @@
 {
     "id": "reflection",
     "name": "Reflection",
-    "description": "Template for reflecting on user experiences and feedback",
-    "version": "1.0.0",
-    "language": "de", 
+    "description": "Answers a task, then self-critiques and improves the answer.",
+    "version": "1.2.1",
+    "language": "en",
     "placeholders": {
-        "role": "string",
-        "input": "string"
+        "task": "string"
     },
-    "role": "kommt in system prompt rein",
-    "prompt": "Act as: $role \n Prompt: $input"
+    "prompt": "Task:\n$task",
+    "system_prompt": "You produce a high-quality answer and then review it for errors, missing details, and unsupported claims. Keep the review actionable.",
+    "user_prompt": "Task:\n$task\n\nOutput format:\n1) Answer\n2) Self-check (bullet points):\n   - Possible errors / uncertainties\n   - Missing info / assumptions\n   - Unsupported claims\n3) Improved answer (revised, concise, clear)\n4) Open questions (only if additional information is required)",
+    "temperature": 0.3
 }

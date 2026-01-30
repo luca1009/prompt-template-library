@@ -1,11 +1,15 @@
 {
     "id": "recipe",
     "name": "Recipe Pattern",
-    "description": "Template Description",
-    "version": "1.0.0",
+    "description": "Creates a complete step-by-step plan from known steps, adds missing steps, and removes unnecessary ones.",
+    "version": "1.1.0",
+    "language": "en",
     "placeholders": {
         "task": "string",
         "steps": "string"
     },
-    "prompt": "Ich möchte $task. Ich weiß dass ich folgende Schritte erledigen muss: $steps. Gebe mir die komplette Reihenfolge aller Schritte die ich zur Erreichung des Ziels brauche. Füge fehlende Aktionen hinzu. Identifiziere unnötige Aktionen. Denke Schritt für Schritt."
+    "prompt": "Goal: $task\nKnown steps: $steps",
+    "system_prompt": "You are a planning assistant. Ensure the plan is actionable and ordered. Think step by step. Include all necessary steps to achieve the goal, remove any irrelevant or optional steps, and order them logically.",
+    "user_prompt": "Goal: $task\n\nKnown steps (may be incomplete or unordered):\n$steps\n\nProvide a complete, ordered list of steps to achieve the goal.",
+    "temperature": 0.3
 }
