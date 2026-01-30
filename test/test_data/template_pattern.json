@@ -1,0 +1,59 @@
+{
+  "test_name": "template_pattern",
+  "pattern_id": "template_pattern",
+  "baseline_id": "baseline_generic_v1",
+  "model_name": "lmstudio-model",
+  "criteria": "Fill the template exactly. Do not add extra fields. Preserve formatting.",
+  "cases": [
+    {
+      "id": "tp_01_project_summary",
+      "params": {
+        "task": "Fill the template",
+        "constraints": "Fill all fields. No extra lines.",
+        "input": "Project: Prompt Pattern Library + Template API + Test runners (Bronze + Silver).",
+        "template": "TITLE: [TITLE]\nGOAL: [GOAL]\nMETHOD: [METHOD]\nEVALUATION: [EVALUATION]\nLIMITATIONS: [LIMITATIONS]",
+        "placeholders": "TITLE, GOAL, METHOD, EVALUATION, LIMITATIONS"
+      }
+    },
+    {
+      "id": "tp_02_bug_report",
+      "params": {
+        "task": "Fill the template",
+        "constraints": "Be concise. Keep each field to one sentence.",
+        "input": "Issue: A/B runner times out when calling /execute; render works fine.",
+        "template": "SUMMARY: [SUMMARY]\nREPRO STEPS: [REPRO]\nEXPECTED: [EXPECTED]\nACTUAL: [ACTUAL]\nFIX: [FIX]",
+        "placeholders": "SUMMARY, REPRO, EXPECTED, ACTUAL, FIX"
+      }
+    },
+    {
+      "id": "tp_03_eval_table_row",
+      "params": {
+        "task": "Fill the template",
+        "constraints": "Use short phrases, not full sentences.",
+        "input": "Compare baseline vs pattern for extraction accuracy and format compliance.",
+        "template": "TASK: [TASK]\nMETRIC: [METRIC]\nBASELINE: [BASELINE]\nPATTERN: [PATTERN]\nNOTES: [NOTES]",
+        "placeholders": "TASK, METRIC, BASELINE, PATTERN, NOTES"
+      }
+    },
+    {
+      "id": "tp_04_paper_outline",
+      "params": {
+        "task": "Fill the template",
+        "constraints": "Max 6 bullet points total across fields.",
+        "input": "I need a compact outline for a paper about prompt patterns and a template library with evaluation.",
+        "template": "INTRO: [INTRO]\nBACKGROUND: [BACKGROUND]\nIMPLEMENTATION: [IMPLEMENTATION]\nEVALUATION: [EVALUATION]\nCONCLUSION: [CONCLUSION]",
+        "placeholders": "INTRO, BACKGROUND, IMPLEMENTATION, EVALUATION, CONCLUSION"
+      }
+    },
+    {
+      "id": "tp_05_requirements",
+      "params": {
+        "task": "Fill the template",
+        "constraints": "Make requirements testable.",
+        "input": "Silver requires A/B tests and a template API. Bronze requires a set of templates and minimal tests.",
+        "template": "REQUIREMENT: [REQ]\nTEST METHOD: [TEST]\nPASS CRITERIA: [PASS]",
+        "placeholders": "REQ, TEST, PASS"
+      }
+    }
+  ]
+}

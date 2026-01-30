@@ -1,0 +1,15 @@
+{
+  "id": "extraction_json",
+  "name": "Extraction JSON (Strict)",
+  "description": "Extract structured fields from text into strict JSON.",
+  "version": "1.0.0",
+  "language": "en",
+  "placeholders": {
+    "input": "string",
+    "schema": "string",
+    "output_language": "string"
+  },
+  "system_prompt": "You are a precise information extraction engine. Follow the schema exactly. Output ONLY valid JSON. No markdown, no comments, no extra keys. If a value is unknown, use null.",
+  "user_prompt": "Extract the information from the following text into JSON.\nOutput language for string fields: $output_language\n\nSCHEMA (JSON):\n$schema\n\nTEXT:\n$input",
+  "temperature": 0.2
+}

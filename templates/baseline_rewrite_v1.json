@@ -1,0 +1,14 @@
+{
+  "id": "baseline_rewrite_v1",
+  "name": "Baseline Rewrite",
+  "description": "Baseline prompt for rewrite tasks without additional patterns.",
+  "version": "1.0.0",
+  "placeholders": {
+    "input": "string",
+    "goal": "string",
+    "constraints": "string"
+  },
+  "system_prompt": "",
+  "user_prompt": "Goal:\n$goal\n\nConstraints:\n$constraints\n\nInput:\n$input",
+  "temperature": 0.2
+}

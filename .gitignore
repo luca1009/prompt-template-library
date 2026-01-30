@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Test output
+bronze_results/
+test/ab_results/
+
 # C extensions
 *.so
 

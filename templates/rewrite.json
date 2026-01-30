@@ -1,0 +1,16 @@
+{
+  "id": "rewrite_preserve_facts_v1",
+  "name": "Rewrite (Style + Preserve Facts)",
+  "description": "Rewrite text in a target style while preserving all given facts.",
+  "version": "1.0.0",
+  "language": "en",
+  "placeholders": {
+    "input": "string",
+    "style": "string",
+    "facts": "string",
+    "output_language": "string"
+  },
+  "system_prompt": "You rewrite text without changing meaning. Preserve all facts exactly. Do not add new facts. If a fact conflicts with the input, keep the input facts. Output must follow the requested format.",
+  "user_prompt": "Rewrite the text in this style: $style\nOutput language: $output_language\n\nFACTS THAT MUST BE PRESERVED (verbatim where possible):\n$facts\n\nTEXT:\n$input\n\nReturn STRICT JSON with keys:\n- rewritten_text\n- preserved_facts (array)\n- changed_or_missing_facts (array)\nNo other text.",
+  "temperature": 0.3
+}

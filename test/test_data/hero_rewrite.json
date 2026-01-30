@@ -1,0 +1,64 @@
+{
+  "test_name": "hero_rewrite",
+  "pattern_id": "rewrite_preserve_facts_v1",
+  "baseline_id": "baseline_rewrite_v1",
+  "model_name": "lmstudio-model",
+  "criteria": "Improve clarity and structure while preserving meaning and all facts. Do not add new facts. Keep length similar unless constraints say otherwise.",
+  "cases": [
+    {
+      "id": "rw_01_academic_tone",
+      "params": {
+        "output_language": "en",
+        "style": "academic, concise",
+        "facts": "Placeholders were wrong because they were copied. Templates were fixed. Goal is to reach Silver level with A/B tests. Time is short.",
+        "goal": "Rewrite for clarity and academic tone",
+        "constraints": "Preserve all facts. Do not add claims. Keep to ~120-180 words.",
+        "input": "I built a prompt pattern library and some placeholders were wrong because I copied them from a persona template. I fixed many templates and now I want to reach Silver level with A/B tests, but time is short."
+      }
+    },
+    {
+      "id": "rw_02_email_professional",
+      "params": {
+        "output_language": "en",
+        "style": "professional, concise",
+        "facts": "User suspects English prompts work better. Professor requires a template API and A/B tests. User tests Gemma locally and has premium access to ChatGPT and Gemini.",
+        "goal": "Rewrite for professionalism and conciseness",
+        "constraints": "One paragraph. Preserve meaning. No new facts.",
+        "input": "Basically I think prompts in English are better but I'm not sure. My professor said I need a template api and AB tests. I also test Gemma locally and have premium access to ChatGPT and Gemini."
+      }
+    },
+    {
+      "id": "rw_03_bullet_summary",
+      "params": {
+        "output_language": "en",
+        "style": "structured bullet summary",
+        "facts": "Bronze tests call each pattern once. Silver uses A/B tests with baselines and patterns. Prompts and outputs are logged for comparison.",
+        "goal": "Rewrite as a crisp bullet summary",
+        "constraints": "5 bullets max. Preserve facts. No extra commentary.",
+        "input": "The Bronze tests are smoke tests that call each pattern once. For Silver I want AB tests with baselines and pattern prompts. I also log prompts and outputs to compare."
+      }
+    },
+    {
+      "id": "rw_04_reduce_redundancy",
+      "params": {
+        "output_language": "en",
+        "style": "neutral technical",
+        "facts": "Client timeout was 10 seconds. Server timeout was 60 seconds. Separate render and execute timeouts improves robustness.",
+        "goal": "Rewrite to reduce redundancy and improve flow",
+        "constraints": "Keep it under 120 words. Preserve all facts.",
+        "input": "My smoke test script timed out because /execute waits for LM Studio. I had a client timeout of 10 seconds and the server timeout is 60 seconds. I should separate render and execute timeouts."
+      }
+    },
+    {
+      "id": "rw_05_plain_language",
+      "params": {
+        "output_language": "en",
+        "style": "plain language for beginners",
+        "facts": "Prompt patterns are reusable prompt structures. They help reliability and formatting. A template API applies them with placeholders.",
+        "goal": "Rewrite in plain language for a beginner audience",
+        "constraints": "Short sentences. Avoid jargon. Keep facts.",
+        "input": "Prompt patterns are reusable prompt structures. They help with reliability, formatting, and evaluation. A template API makes them easy to apply with placeholders."
+      }
+    }
+  ]
+}

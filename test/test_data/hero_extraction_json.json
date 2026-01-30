@@ -1,0 +1,54 @@
+{
+  "test_name": "hero_extraction_json",
+  "pattern_id": "extraction_json",
+  "baseline_id": "baseline_extraction_v1",
+  "model_name": "lmstudio-model",
+  "criteria": "Return valid JSON matching the schema. No extra keys. Prefer null if unknown. Follow constraints precisely.",
+  "cases": [
+    {
+      "id": "ex_01_booking_basic",
+      "params": {
+        "output_language": "en",
+        "schema": "{\"guest_name\": null, \"checkin\": null, \"checkout\": null, \"price_eur\": null, \"notes\": null}",
+        "constraints": "Dates must be ISO (YYYY-MM-DD). price_eur must be a number.",
+        "input": "Booking request: Luca Bauernfeind, arriving Feb 5 2026, leaving Feb 10 2026. Total price is 350 EUR. Notes: late check-in after 22:00."
+      }
+    },
+    {
+      "id": "ex_02_booking_missing_price",
+      "params": {
+        "output_language": "en",
+        "schema": "{\"guest_name\": null, \"checkin\": null, \"checkout\": null, \"price_eur\": null, \"notes\": null}",
+        "constraints": "Dates must be ISO (YYYY-MM-DD). If price unknown, set null.",
+        "input": "Hi, this is Anna Meier. I would like to stay from March 3 to March 6, 2026. I might arrive late. What would it cost?"
+      }
+    },
+    {
+      "id": "ex_03_meeting_minutes",
+      "params": {
+        "output_language": "en",
+        "schema": "{\"company\": null, \"meeting_date\": null, \"participants\": [], \"decisions\": [], \"action_items\": []}",
+        "constraints": "meeting_date ISO. participants list. action_items short imperative phrases.",
+        "input": "Meeting with BMW Group on March 3, 2026. Participants: Luca, Anna, Max. Decision: use Template API for evaluation. Action items: send updated PDF; prepare demo; write evaluation section."
+      }
+    },
+    {
+      "id": "ex_04_invoice_like_text",
+      "params": {
+        "output_language": "en",
+        "schema": "{\"invoice_no\": null, \"vendor\": null, \"date\": null, \"total_eur\": null, \"line_items\": []}",
+        "constraints": "date ISO. total_eur number. line_items list of {\"name\":...,\"qty\":...,\"price_eur\":...}.",
+        "input": "Invoice INV-2026-041 | Vendor: Studio Tools GmbH | Date: 30.01.2026 | Items: 2x HDMI Cable 9,99 EUR; 1x USB Hub 24,50 EUR | Total: 44,48 EUR"
+      }
+    },
+    {
+      "id": "ex_05_address_contact",
+      "params": {
+        "output_language": "en",
+        "schema": "{\"name\": null, \"email\": null, \"phone\": null, \"address\": {\"street\": null, \"zip\": null, \"city\": null}}",
+        "constraints": "zip should be 5 digits if present. phone can be null.",
+        "input": "Contact: Max Mustermann (max@mustermann.de). Address: Musterstraße 12, 90402 Nürnberg. Phone not provided."
+      }
+    }
+  ]
+}

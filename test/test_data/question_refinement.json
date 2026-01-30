@@ -1,0 +1,49 @@
+{
+  "test_name": "question_refinement",
+  "pattern_id": "question_refinement",
+  "baseline_id": "baseline_generic_v1",
+  "model_name": "lmstudio-model",
+  "criteria": "Produce multiple clearer, more specific variants of the question. Keep intent. Add constraints/output format where useful.",
+  "cases": [
+    {
+      "id": "qr_01_vague",
+      "params": {
+        "task": "Refine the question",
+        "constraints": "Return 3 refined questions and 2 clarifying questions.",
+        "question": "How do prompt patterns help?"
+      }
+    },
+    {
+      "id": "qr_02_eval_plan",
+      "params": {
+        "task": "Refine the question",
+        "constraints": "Make it testable and scoped for a short report.",
+        "question": "How can I evaluate my prompt library?"
+      }
+    },
+    {
+      "id": "qr_03_ab_tests",
+      "params": {
+        "task": "Refine the question",
+        "constraints": "Include required outputs and metrics.",
+        "question": "What is the best way to do A/B tests for prompts?"
+      }
+    },
+    {
+      "id": "qr_04_templates",
+      "params": {
+        "task": "Refine the question",
+        "constraints": "Include assumptions and environment constraints.",
+        "question": "How should I structure my templates?"
+      }
+    },
+    {
+      "id": "qr_05_debug",
+      "params": {
+        "task": "Refine the question",
+        "constraints": "Focus on actionable debugging steps.",
+        "question": "My prompt tests are slow. What do I do?"
+      }
+    }
+  ]
+}

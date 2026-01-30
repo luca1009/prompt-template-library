@@ -1,0 +1,14 @@
+{
+  "id": "baseline_generic_v1",
+  "name": "Baseline Generic",
+  "description": "Minimal baseline prompt without a specific prompt pattern.",
+  "version": "1.0.0",
+  "placeholders": {
+    "task": "string",
+    "input": "string",
+    "constraints": "string"
+  },
+  "system_prompt": "",
+  "user_prompt": "Task:\n$task\n\nConstraints:\n$constraints\n\nInput:\n$input",
+  "temperature": 0.3
+}

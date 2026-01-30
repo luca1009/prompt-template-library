@@ -1,0 +1,49 @@
+{
+  "test_name": "fact_check_list",
+  "pattern_id": "fact_check_list",
+  "baseline_id": "baseline_generic_v1",
+  "model_name": "lmstudio-model",
+  "criteria": "Extract verifiable factual claims (atomic) and provide a concrete verification checklist per claim.",
+  "cases": [
+    {
+      "id": "fcl_01_definition_claims",
+      "params": {
+        "task": "Answer and provide fact-check list",
+        "constraints": "Separate answer from claims. Claims must be verifiable.",
+        "text": "Prompt patterns are reusable prompt structures that improve reliability. They are based on a 2023 paper that catalogues patterns for LLM prompting."
+      }
+    },
+    {
+      "id": "fcl_02_project_claims",
+      "params": {
+        "task": "Extract checkable claims",
+        "constraints": "Focus on measurable claims only.",
+        "text": "My template API supports /render and /execute and estimates tokens. A/B tests compare baseline prompts with pattern prompts across multiple models."
+      }
+    },
+    {
+      "id": "fcl_03_mixed_opinions",
+      "params": {
+        "task": "Extract verifiable claims and separate opinions",
+        "constraints": "Do not treat opinions as facts.",
+        "text": "English prompts are better than German prompts for most models. My results were significantly improved after switching language."
+      }
+    },
+    {
+      "id": "fcl_04_risk_statement",
+      "params": {
+        "task": "Fact-check the statement",
+        "constraints": "Include what would disprove each claim.",
+        "text": "If the client timeout is smaller than the server timeout, requests will fail. Increasing the timeout to 120 seconds resolves the issue."
+      }
+    },
+    {
+      "id": "fcl_05_implementation_claims",
+      "params": {
+        "task": "Extract claims",
+        "constraints": "Keep it short.",
+        "text": "The library contains more than 10 prompt patterns. Each pattern is stored as a JSON template with placeholders, and the API uses string substitution to render prompts."
+      }
+    }
+  ]
+}
