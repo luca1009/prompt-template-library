@@ -1,11 +1,14 @@
 {
     "id": "persona",
-    "name": "Textzusammenfassung - Variante A",
-    "description": "Erzeugt eine neutrale, prägnante Zusammenfassung eines Textes.",
+    "name": "Persona Pattern",
+    "description": "Answers the user's query by adopting a specific persona or role. Placeholders include 'persona' for the role to assume and 'task' for the specific action or response required.",
     "version": "1.0.0",
     "placeholders": {
         "persona": "string",
         "task": "string"
     },
-    "prompt": "Du bist jetzt $persona. $task"
+    "prompt": "Du bist jetzt $persona. $task",
+    "system_prompt": "Act as the following persona: $persona. Stay in character and respond to the user's requests accordingly.",
+    "user_prompt": "Your task is: $task. \nAnswer: ",
+    "temperature": 0.7
 }

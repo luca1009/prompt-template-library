@@ -8,6 +8,8 @@
         "role": "string",
         "input": "string"
     },
-    "role": "kommt in system prompt rein",
-    "prompt": "Act as: $role \n Prompt: $input"
+    "prompt": "Act as: $role \n Prompt: $input",
+    "system_prompt": "You are now $role.",
+    "user_prompt": "Here is your input: $input",
+    "temperature": 0.7
 }
