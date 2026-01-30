@@ -36,7 +36,6 @@ Important: keep `$placeholder` tokens and do not switch substitution syntaxes. T
 1. Create and activate a virtual environment:
 
 ```powershell
-Set-Location 'C:\Users\lucab\Documents\LLMod Code'
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
