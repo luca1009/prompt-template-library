@@ -1,14 +1,18 @@
 {
     "id": "flipped_interaction",
     "name": "Flipped Interaction",
-    "description": "Asks the single most important next question to efficiently solve the user's problem.",
-    "version": "1.2.1",
+    "description": "The model drives the conversation by asking questions until it has enough information to achieve a stated goal and produce the requested deliverable.",
+    "version": "1.3.0",
     "language": "en",
     "placeholders": {
-        "problem": "string"
+        "goal": "string",
+        "deliverable": "string",
+        "termination_condition": "string",
+        "questions_per_turn": "string",
+        "context": "string"
     },
-    "prompt": "User problem:\n$problem",
-    "system_prompt": "You lead the conversation by asking the single most important next question to solve the problem efficiently. Ask exactly one question. Keep it short and high-impact.",
-    "user_prompt": "User problem:\n$problem\n\nTask:\nAsk exactly ONE next question that unlocks the solution.\n\nOutput format:\n- Next question (single line)\n- Why this question? (1 sentence)\n- What you can deliver after the answer (max 3 bullets)",
-    "temperature": 0.4
+    "prompt": "Goal:\n$goal",
+    "system_prompt": "You must lead the interaction by asking questions to achieve the user's goal. Ask questions until the termination condition is met. Once you have enough information, stop asking questions and produce the requested deliverable.",
+    "user_prompt": "From now on, I would like you to ask me questions to achieve this goal:\n$goal\n\nYou should ask questions until this condition is met:\n$termination_condition\n\nAsk me $questions_per_turn question(s) at a time.\n\nDeliverable to produce once you have enough information:\n$deliverable\n\nContext / known information (may be empty at the start):\n$context\n\nRules:\n- If the context already contains enough information, skip questions and produce the deliverable now.\n- Otherwise, ask exactly $questions_per_turn high-impact questions (numbered) that move us toward the goal fastest.\n- Do not produce the deliverable until you have enough information.\n- End every questioning turn with: \"Please answer 1..$questions_per_turn.\"\n\nOutput format:\n- Status (1 short sentence: what you’re trying to accomplish)\n- Questions (numbered 1..$questions_per_turn)\n- \"Please answer 1..$questions_per_turn.\"",
+    "temperature": 0.5
 }

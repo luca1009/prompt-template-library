@@ -1,14 +1,16 @@
 {
     "id": "cognitive_verifier",
     "name": "Cognitive Verifier",
-    "description": "Decomposes a task into sub-questions, answers them briefly, then verifies the final answer.",
-    "version": "1.2.1",
+    "description": "Generates follow-up questions that improve answer accuracy; after the user answers them, it combines the answers into a final response.",
+    "version": "1.3.0",
     "language": "en",
     "placeholders": {
-        "query": "string"
+        "question": "string",
+        "num_questions": "string",
+        "answers": "string"
     },
-    "prompt": "Query:\n$query",
-    "system_prompt": "You decompose complex tasks into sub-questions, answer them briefly, then verify the final response for contradictions, missing constraints, and unsupported claims.",
-    "user_prompt": "Query:\n$query\n\nOutput format:\n1) Sub-questions (3-5, numbered)\n2) Brief answers to sub-questions\n3) Draft final answer\n4) Verification checklist:\n   - Missing constraints?\n   - Contradictions?\n   - Unsupported claims?\n5) Final answer (revised after verification)",
+    "prompt": "Question:\n$question",
+    "system_prompt": "When you are asked a question, follow these rules: (1) generate additional questions that would help more accurately answer the question, (2) after the user answers those questions, combine the answers into a final answer to the original question.",
+    "user_prompt": "Original question:\n$question\n\nYou must follow this interaction protocol:\n- Step 1 (Questioning): Generate $num_questions follow-up questions that would help you answer the original question more accurately.\n- Step 2 (Synthesis): After I answer them, combine my answers to produce a final answer to the original question.\n\nMy answers to follow-up questions (may be empty on the first run):\n$answers\n\nDecision rule:\n- If my answers are empty or say 'N/A', do ONLY Step 1 and end by asking me to reply with answers in the same numbering.\n- If my answers are present, do ONLY Step 2: produce the final answer to the original question. Do not ask new questions.\n\nOutput format:\nIf Step 1:\n- Follow-up Questions (numbered 1..$num_questions)\n- \"Reply with your answers as: 1) ... 2) ...\"\n\nIf Step 2:\n- Final Answer (direct, structured)\n- Assumptions (only if necessary; short bullets)",
     "temperature": 0.3
 }
