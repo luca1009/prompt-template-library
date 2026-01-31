@@ -1,0 +1,4 @@
+experiment,case_id,template_id,model_name,status,latency_ms,style_score,substance_score,avg_sentence_length,lexical_diversity,facts_input_count,facts_preserved,facts_changed
+gold_style_substance_demo,demo_01_formal,rewrite_preserve_facts_v1,lmstudio-model,OK,6532,,,7.33,0.84,3,0,0
+gold_style_substance_demo,demo_02_academic,rewrite_preserve_facts_v1,lmstudio-model,OK,5498,,,14.50,0.81,3,0,0
+gold_style_substance_demo,demo_03_plain,rewrite_preserve_facts_v1,lmstudio-model,OK,4707,,,6.43,0.76,3,0,0

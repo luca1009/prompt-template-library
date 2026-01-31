@@ -1,0 +1,34 @@
+{
+  "test_name": "gold_style_substance_demo",
+  "pattern_id": "rewrite_preserve_facts_v1",
+  "model_name": "lmstudio-model",
+  "cases": [
+    {
+      "id": "demo_01_formal",
+      "params": {
+        "output_language": "en",
+        "style": "formal and concise",
+        "facts": "deadline: Feb 5; budget: 200 EUR; location: Nuremberg",
+        "input": "Luca booked a room from February 5 to February 10 for 350 EUR. The address is Example Street 12 in Nuremberg. The contact email is luca@example.com. Notes: late check‑in."
+      }
+    },
+    {
+      "id": "demo_02_academic",
+      "params": {
+        "output_language": "en",
+        "style": "academic, concise",
+        "facts": "templates were fixed; A/B tests planned; time is limited",
+        "input": "I built a prompt pattern library and some placeholders were wrong because I copied them from a persona template. I fixed many templates and now I want to reach Silver level with A/B tests, but time is short."
+      }
+    },
+    {
+      "id": "demo_03_plain",
+      "params": {
+        "output_language": "en",
+        "style": "plain language for beginners",
+        "facts": "Prompt patterns are reusable prompt structures; they improve reliability and formatting; a template API applies them with placeholders",
+        "input": "Prompt patterns are reusable prompt structures. They help with reliability, formatting, and evaluation. A template API makes them easy to apply with placeholders."
+      }
+    }
+  ]
+}
