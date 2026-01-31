@@ -11,8 +11,11 @@ import time
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+from dotenv import load_dotenv
 
 import requests
+
+load_dotenv()
 
 
 # -----------------------------
@@ -109,8 +112,9 @@ def judge_pairwise_gemini(criteria: str, user_input: str, out_a: str, out_b: str
     if not api_key:
         return {"winner": "TIE", "rationale": "GEMINI_API_KEY not set"}
 
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    #client = genai.configure(api_key=api_key)
+    client = genai.Client(api_key=api_key)
+    #model = genai.GenerativeModel("gemini-1.5-flash")
 
     prompt = f"""
 You are a strict A/B judge.
@@ -132,8 +136,9 @@ Return EXACTLY this format, one line each:
 WINNER: A|B|TIE
 RATIONALE: <one sentence>
 """
-    res = model.generate_content(prompt)
-    text = (res.text or "").strip()
+    #res = client.models.generate_content(model="gemini-2.5-flash-lite", contents=prompt)
+    res = client.models.generate_content(model="gemma-3-27b", contents=prompt)
+    text = (getattr(res, "text", "") or "").strip()
 
     winner = "TIE"
     m = re.search(r"WINNER:\s*(A|B|TIE)", text)

@@ -1,0 +1,49 @@
+{
+  "test_name": "alternative_approaches",
+  "pattern_id": "alternative_approaches",
+  "baseline_id": "baseline_generic_v1",
+  "model_name": "lmstudio-model",
+  "criteria": "Provide multiple distinct approaches with pros/cons and a recommendation. Avoid near-duplicates.",
+  "cases": [
+    {
+      "id": "aa_01_eval_design",
+      "params": {
+        "task": "Propose alternative approaches",
+        "constraints": "3 approaches. Include trade-offs. Keep under 220 words.",
+        "problem": "I need an evaluation design for a prompt pattern library with a template API. Deadline is tomorrow."
+      }
+    },
+    {
+      "id": "aa_02_timeout_debug",
+      "params": {
+        "task": "Propose alternative approaches",
+        "constraints": "Include one approach that changes client timeouts and one that changes server/provider logic.",
+        "problem": "My /execute calls time out. Render is fast. How can I make the system more robust?"
+      }
+    },
+    {
+      "id": "aa_03_prompt_language",
+      "params": {
+        "task": "Propose alternative approaches",
+        "constraints": "Compare EN-only vs bilingual vs auto-detect strategies.",
+        "problem": "Should I store prompts in English only, German only, or support both for evaluation and real usage?"
+      }
+    },
+    {
+      "id": "aa_04_baselines",
+      "params": {
+        "task": "Propose alternative approaches",
+        "constraints": "Focus on how to define baselines for A/B tests.",
+        "problem": "How should I design baseline prompts for fair A/B comparisons across multiple prompt patterns?"
+      }
+    },
+    {
+      "id": "aa_05_reporting",
+      "params": {
+        "task": "Propose alternative approaches",
+        "constraints": "Provide approaches for reporting results in a short paper.",
+        "problem": "How can I present A/B results convincingly within 2 pages of evaluation section?"
+      }
+    }
+  ]
+}
